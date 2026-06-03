@@ -84,34 +84,184 @@ img {
 }
 
 .hero {
-  padding: 4rem 2rem 2rem;
+  min-height: 75vh;
+  padding: 3rem 2rem 4rem;
+  display: flex;
+  align-items: center;
   max-width: 1200px;
   margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(circle at top right, rgba(251, 191, 36, 0.16), transparent 28%), linear-gradient(135deg, #111827 0%, #1f2937 38%, #111827 100%);
+  color: #f8fafc;
+  border-radius: 2rem;
 }
 
-.hero-copy {
-  max-width: 720px;
+.hero-content {
+  max-width: 640px;
+  z-index: 1;
 }
 
 .eyebrow {
   margin: 0 0 1rem;
   font-size: 0.95rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: #16a34a;
+  color: #fbbf24;
 }
 
 .hero h2 {
   margin: 0 0 1rem;
-  font-size: clamp(2rem, 3vw, 3rem);
+  font-size: clamp(2.25rem, 4vw, 4.5rem);
   line-height: 1.05;
 }
 
 .hero p {
+  margin: 0 0 1.75rem;
+  color: rgba(248, 248, 248, 0.88);
+  font-size: 1.05rem;
+  max-width: 38rem;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.primary-btn,
+.secondary-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.95rem 1.6rem;
+  border-radius: 999px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.primary-btn {
+  background: #fbbf24;
+  color: #111827;
+}
+
+.primary-btn:hover {
+  transform: translateY(-2px);
+  background: #fde047;
+}
+
+.secondary-btn {
+  background: rgba(255, 255, 255, 0.12);
+  color: #f8fafc;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.secondary-btn:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.hero-features {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.hero-features li {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 1rem;
+  padding: 1rem 1.25rem;
+  color: #f8fafc;
+  font-size: 0.95rem;
+}
+
+.category-preview {
+  padding: 3rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.category-preview .section-header {
+  margin-bottom: 2rem;
+}
+
+.category-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.category-card {
+  padding: 1.75rem;
+  background: #f8fafc;
+  border-radius: 1.5rem;
+  box-shadow: 0 20px 55px rgba(15, 23, 42, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.category-card h4 {
+  margin: 0;
+  font-size: 1.25rem;
+  color: #111827;
+}
+
+.category-card p {
   margin: 0;
   color: #475569;
-  font-size: 1rem;
+}
+
+.category-card a {
+  margin-top: auto;
+  color: #fbbf24;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.category-card a:hover {
+  text-decoration: underline;
+}
+
+.section-dark {
+  background: #111827;
+}
+
+#cereals.section-dark {
+  background: radial-gradient(circle at top left, #1f2937 0%, #111827 40%, #0f172a 100%);
+  color: #f8fafc;
+}
+
+#shito.section-dark {
+  background: radial-gradient(circle at top left, #fde047 0%, #f59e0b 25%, #000000 44%, #111827 100%);
+  color: #f8fafc;
+}
+
+#groundnuts .product-card {
+  background: rgba(255, 255, 255, 0.92);
+}
+
+#groundnuts .section-header h3,
+#groundnuts .section-header p,
+#groundnuts .section-tag {
+  color: #f8fafc;
+}
+
+#groundnuts .product-grid {
+  position: relative;
+  z-index: 1;
+}
+
+#shito .product-card,
+#cereals .product-card {
+  background: rgba(255, 255, 255, 0.95);
 }
 
 .product-section {
@@ -164,8 +314,10 @@ img {
 }
 
 #groundnuts.section-light {
-  background: radial-gradient(circle at top left, #b46f2b 0%, #8d4f1e 35%, #59311a 75%, #402215 100%);
+  background-image: linear-gradient(rgba(180, 111, 43, 0.75), rgba(64, 34, 21, 0.75)), url("images/grountnut.png");
   background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   color: #f8fafc;
 }
 
@@ -520,8 +672,12 @@ img {
     padding: 3rem 1rem 1.5rem;
   }
 
-  .hero-copy {
+  .hero-content {
     max-width: 100%;
+  }
+
+  .hero-features {
+    grid-template-columns: 1fr;
   }
 
   .product-section {
@@ -546,6 +702,10 @@ img {
 
   .product-content h4 {
     font-size: 1.1rem;
+  }
+
+  .category-preview {
+    padding: 2rem 1rem;
   }
 
   .product-price,
