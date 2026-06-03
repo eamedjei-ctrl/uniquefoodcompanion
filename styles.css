@@ -11,6 +11,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   min-height: 100vh;
@@ -188,6 +192,20 @@ img {
 
 #shito .product-card {
   background: rgba(255, 255, 255, 0.96);
+}
+
+#shito .section-summary {
+  max-width: 820px;
+  margin-top: 1rem;
+  padding: 1rem 1.2rem;
+  border-radius: 1rem;
+  background: rgba(248, 250, 252, 0.18);
+  border: 1px solid rgba(248, 250, 252, 0.3);
+}
+
+#shito .section-summary p {
+  margin: 0.8rem 0;
+  line-height: 1.7;
 }
 
 .section-light {

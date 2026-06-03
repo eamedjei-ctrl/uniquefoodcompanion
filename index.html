@@ -39,6 +39,8 @@
         <div class="section-header">
           <h3>Unique SHITO</h3>
           <p>Rich and spicy Ghanaian pepper sauce made from peppers, fish, and savory oil.</p>
+          <p><strong>USES:</strong> It can be taken as stew with Kenkey, Banku, Rice, Gari, Bread, Yam etc. Naturally flavoured and delicious with no preservatives, addictives and colour.</p>
+          <p><strong>Preservations:</strong> Scoop UNIQUEE FOOD COMPANION SHITO with clean, dry spoon, ALWAYS LEAVE OIL ON TOP TO PREVENT SPOILAGE.</p>
         </div>
         <div class="product-grid">
           <article class="product-card">
@@ -59,14 +61,14 @@
 
       <section id="groundnuts" class="product-section section-light">
         <div class="section-header">
-          <h3>Unique Groundnuts</h3>
+          <h3>Unique Crispy Groundnut</h3>
           <p>Roasted groundnuts only, available in a range of sizes.</p>
         </div>
         <div class="product-grid">
           <article class="product-card">
-            <img src="https://via.placeholder.com/560x360?text=Roasted+Groundnuts" alt="Roasted Groundnuts product" />
+            <img src="https://via.placeholder.com/560x360?text=Unique+Crispy+Groundnut" alt="Unique Crispy Groundnut product" />
             <div class="product-content">
-              <h4>Roasted Groundnuts</h4>
+              <h4>Unique Crispy Groundnut</h4>
               <p>Perfectly roasted and ready for eating, with rich flavor and crunch.</p>
               <div class="product-meta">
                 <span class="product-price">Sizes coming soon</span>
@@ -79,8 +81,10 @@
 
       <section id="cereals" class="product-section section-dark">
         <div class="section-header">
-          <h3>Unique Daily Breakfast</h3>
+          <h3>Daily Breakfast</h3>
           <p>Nutritious cereals for breakfast, baking, and wholesome meals.</p>
+          <p><strong>USES:</strong> Should be taken as breakfast with sugar or honey for babies and with biscuits or bread by adults.</p>
+          <p><strong>Preservations:</strong> Store in a cool dry place.</p>
         </div>
         <div class="product-grid">
           <article class="product-card">
@@ -159,6 +163,15 @@
                 </div>
               </div>
               <div class="contact-block">
+                <h3>🏠 Contact Address</h3>
+                <p>Plot No. 322</p>
+                <p>PS Global Estate Dawhenya, Tema</p>
+              </div>
+              <div class="contact-block">
+                <h3>✉️ Email</h3>
+                <p><a href="mailto:uniquefoodcompanion@gmail.com">uniquefoodcompanion@gmail.com</a></p>
+              </div>
+              <div class="contact-block">
                 <h3>📸 Instagram</h3>
                 <p><a href="https://instagram.com/uniquefoodcompanion" target="_blank">@uniquefoodcompanion</a></p>
               </div>
@@ -183,7 +196,7 @@
                   <option value="">-- Select Product --</option>
                   <option value="shito">Unique SHITO</option>
                   <option value="groundnuts">Unique Groundnuts</option>
-                  <option value="cereals">Unique Daily Breakfast</option>
+                  <option value="cereals">Daily Breakfast</option>
                 </select>
               </div>
               <div class="form-group">
@@ -220,5 +233,34 @@
     window.addEventListener('scroll', revealOnScroll);
     window.addEventListener('load', revealOnScroll);
     revealOnScroll();
+
+    // Smooth nav scrolling that accounts for sticky header and scrolls Contact to bottom
+    (function() {
+      const header = document.querySelector('.site-header');
+      const getHeaderOffset = () => header ? header.offsetHeight : 0;
+
+      const handleAnchorClick = (e) => {
+        const link = e.currentTarget;
+        const href = link.getAttribute('href');
+        if (!href || !href.startsWith('#')) return;
+
+        const id = href.slice(1);
+        const target = document.getElementById(id);
+
+        e.preventDefault();
+
+        if (id === 'contact-order') {
+          window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+          return;
+        }
+
+        if (target) {
+          const top = target.getBoundingClientRect().top + window.pageYOffset - getHeaderOffset();
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
+      };
+
+      document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', handleAnchorClick));
+    })();
   </script>
 </html>
