@@ -326,6 +326,31 @@ img {
   text-decoration: underline;
 }
 
+.whatsapp-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1rem;
+  background: #25d366;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  margin-top: 0.5rem;
+}
+
+.whatsapp-btn:hover {
+  background: #20ba5a;
+  transform: scale(1.05);
+  text-decoration: none;
+}
+
+.whatsapp-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
 .contact-block a {
   color: #fbbf24;
   text-decoration: none;
