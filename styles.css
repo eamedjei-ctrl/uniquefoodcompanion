@@ -759,6 +759,96 @@ img {
   transform: scale(0.98);
 }
 
+.order-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.72);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  z-index: 1000;
+}
+
+.order-modal-overlay.open {
+  display: flex;
+}
+
+.order-modal {
+  width: min(100%, 560px);
+  max-height: calc(100vh - 3rem);
+  overflow: auto;
+  background: #f8fafc;
+  border-radius: 1.75rem;
+  padding: 2rem;
+  box-shadow: 0 30px 90px rgba(15, 23, 42, 0.24);
+  position: relative;
+}
+
+.order-modal-header {
+  margin-bottom: 1.5rem;
+}
+
+.order-modal-header h2 {
+  margin: 0.55rem 0 0;
+  font-size: clamp(1.75rem, 2.3vw, 2.4rem);
+  color: #111827;
+}
+
+.modal-subtitle {
+  margin: 0.65rem 0 0;
+  color: #475569;
+  line-height: 1.7;
+}
+
+.order-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  border: none;
+  background: transparent;
+  color: #475569;
+  font-size: 1.65rem;
+  cursor: pointer;
+}
+
+.order-modal-close:hover {
+  color: #111827;
+}
+
+.order-summary {
+  margin-bottom: 1.5rem;
+  padding: 1rem 1.15rem;
+  background: #eef2ff;
+  color: #0f172a;
+  border-radius: 1rem;
+  border: 1px solid #dbeafe;
+}
+
+.order-modal .form-group label {
+  color: #0f172a;
+}
+
+.order-modal .form-group input,
+.order-modal .form-group select,
+.order-modal .form-group textarea {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  color: #0f172a;
+}
+
+.order-modal .submit-btn {
+  width: 100%;
+}
+
+@media (max-width: 640px) {
+  .order-modal {
+    max-height: calc(100vh - 2rem);
+    padding: 1.25rem;
+  }
+}
+
+
 @media (max-width: 720px) {
   .contact-section {
     padding: 2rem 1rem;
