@@ -15,6 +15,11 @@
           <p>Authentic harvests from farm to table.</p>
         </div>
       </div>
+      <button class="nav-toggle" aria-expanded="false" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
       <nav class="site-nav">
         <a href="#shito">SHITO</a>
         <a href="#groundnuts">Groundnuts</a>
@@ -29,15 +34,6 @@
           <p class="eyebrow">Authentic Ghanaian flavors</p>
           <h2>Premium SHITO, Crispy Groundnut, and Daily Breakfast mixes</h2>
           <p>Enjoy natural, preservative-free pantry staples crafted for home cooks, busy families, and food lovers who want the best from farm to table.</p>
-          <div class="hero-actions">
-            <a class="primary-btn" href="#shito">Shop SHITO</a>
-            <a class="secondary-btn" href="#contact-order">Order Now</a>
-          </div>
-          <ul class="hero-features">
-            <li>Natural ingredients</li>
-            <li>Ready with local favorites</li>
-            <li>Freshly packed for quality</li>
-          </ul>
         </div>
       </section>
 
@@ -47,20 +43,23 @@
           <p>Choose your favorite meal base and explore handcrafted products made for flavor, convenience, and everyday enjoyment.</p>
         </div>
         <div class="category-grid">
-          <article class="category-card">
+          <article class="category-card shito-card">
+            <img src="images/shito.jpeg" alt="Unique SHITO" class="shito-card__img" />
             <h4>Unique SHITO</h4>
             <p>Bold, savory pepper sauce built for Kenkey, Banku, Rice, Gari, Bread, Yam and more.</p>
-            <a href="#shito">Explore SHITO</a>
+            <a class="shito-cta" href="#shito">Explore SHITO</a>
           </article>
-          <article class="category-card">
+          <article class="category-card groundnut-card">
+            <img src="images/grountnut.jpeg" alt="Unique Crispy Groundnut" class="groundnut-card__img" />
             <h4>Unique Crispy Groundnut</h4>
             <p>Crispy roasted groundnuts for snacking, cooking, or sharing with family.</p>
-            <a href="#groundnuts">Explore Groundnuts</a>
+            <a class="groundnut-cta" href="#groundnuts">Explore Groundnuts</a>
           </article>
-          <article class="category-card">
+          <article class="category-card breakfast-card">
+            <img src="images/daily-break-fast.jpeg" alt="Daily Breakfast" class="breakfast-card__img" />
             <h4>Daily Breakfast</h4>
             <p>Wholesome cereal blends perfect for mornings with honey, sugar, bread, or biscuits.</p>
-            <a href="#cereals">Explore Breakfast</a>
+            <a class="breakfast-cta" href="#cereals">Explore Breakfast</a>
           </article>
         </div>
       </section>
@@ -80,12 +79,7 @@
               <p class="product-eyebrow">Featured</p>
               <h4>SHITO Wholesale Sizes</h4>
               <p>Choose from premium wholesale quantities for your kitchen or business.</p>
-              <ul class="size-list">
-                <li>970g – wholesale price ₵125.00</li>
-                <li>580g – wholesale price ₵70.00</li>
-                <li>370g – wholesale price ₵52.00</li>
-                <li>270g – wholesale price ₵36.00</li>
-              </ul>
+              <a class="size-link-btn" href="sizes.html#shito">View Sizes</a>
               <a class="order-btn" href="#contact-order">Order Now</a>
             </div>
           </article>
@@ -134,6 +128,7 @@
                 <span class="product-price">Price: coming soon</span>
                 <span class="product-image-note">Image per size will appear here</span>
               </div>
+              <a class="size-link-btn" href="sizes.html#rice-mix">View Sizes</a>
               <a class="order-btn" href="#contact-order">Order Now</a>
             </div>
           </article>
@@ -147,6 +142,7 @@
                 <span class="product-price">Price: coming soon</span>
                 <span class="product-image-note">Image per size will appear here</span>
               </div>
+              <a class="size-link-btn" href="sizes.html#maize-mix">View Sizes</a>
               <a class="order-btn" href="#contact-order">Order Now</a>
             </div>
           </article>
@@ -160,6 +156,7 @@
                 <span class="product-price">Price: coming soon</span>
                 <span class="product-image-note">Image per size will appear here</span>
               </div>
+              <a class="size-link-btn" href="sizes.html#cereal-mix">View Sizes</a>
               <a class="order-btn" href="#contact-order">Order Now</a>
             </div>
           </article>
@@ -173,6 +170,7 @@
                 <span class="product-price">Price: coming soon</span>
                 <span class="product-image-note">Image per size will appear here</span>
               </div>
+              <a class="size-link-btn" href="sizes.html#millet-mix">View Sizes</a>
               <a class="order-btn" href="#contact-order">Order Now</a>
             </div>
           </article>
@@ -304,6 +302,28 @@
           window.scrollTo({ top, behavior: 'smooth' });
         }
       };
+
+      const navToggle = document.querySelector('.nav-toggle');
+      const siteNav = document.querySelector('.site-nav');
+
+      if (navToggle && siteNav) {
+        navToggle.addEventListener('click', () => {
+          const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+          navToggle.setAttribute('aria-expanded', String(!expanded));
+          siteNav.classList.toggle('open');
+          navToggle.classList.toggle('open');
+        });
+
+        document.querySelectorAll('.site-nav a').forEach(link => {
+          link.addEventListener('click', () => {
+            if (siteNav.classList.contains('open')) {
+              siteNav.classList.remove('open');
+              navToggle.setAttribute('aria-expanded', 'false');
+              navToggle.classList.remove('open');
+            }
+          });
+        });
+      }
 
       document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', handleAnchorClick));
     })();
